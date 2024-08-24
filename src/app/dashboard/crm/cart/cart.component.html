@@ -1,0 +1,26 @@
+<div class="cart">
+  <h2>Votre commande</h2>
+  <div *ngIf="(cartItems$ | async)?.length ?? 0 > 0; else emptyCart">
+    <div *ngFor="let item of (cartItems$ | async) ?? []" class="cart-item">
+      <div class="cart-item-header">
+        <span class="quantity">{{ item.quantity }}x</span>
+        <span class="item-name">{{ item.name }}</span>
+        <span class="item-price">{{ item.totalPrice.toFixed(3) }} TND</span>
+      </div>
+      <div class="cart-item-actions">
+        <button (click)="decrementQuantity(item)" class="action-button decrement-button">-</button>
+        <button (click)="incrementQuantity(item)" class="action-button increment-button">+</button>
+      </div>
+    </div>
+    <div class="total">
+      <h3>Total: {{ getTotalPrice() }}</h3>
+    </div>
+    <button (click)="openOrderDialog()" class="place-order-button">Passer la commande</button>
+  </div>
+  <ng-template #emptyCart>
+    <div class="empty-cart">
+      <img src="assets/images/hungry.png" alt="Empty Cart">
+      <p>Vous n'avez ajouté aucun produit. Quand vous le ferez, vous les verrez ici!</p>
+    </div>
+  </ng-template>
+</div>

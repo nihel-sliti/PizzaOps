@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Choisissez votre Sauce</h1>
+<div mat-dialog-content>
+  <p>Choisissez au maximum 6 options ·</p>
+  <div class="option-list">
+    <div class="option-item" *ngFor="let option of data.options" 
+         (click)="toggleOption(option)"
+         role="button"
+         tabindex="0"
+         (keydown)="onOptionKeyDown($event, option)">
+      <span>{{ option.name }} (+{{ option.price.toFixed(3) }} TND)</span>
+      <button mat-icon-button>
+        <mat-icon *ngIf="isSelectedOption(option)">remove_circle_outline</mat-icon>
+        <mat-icon *ngIf="!isSelectedOption(option)">add_circle_outline</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="item-details">
+    <img [src]="data.image" alt="{{ data.name }}">
+    <h2>{{ data.name }}</h2>
+    <p>{{ data.price.toFixed(3) }} TND</p>
+    <p>{{ data.details.join(', ') }}</p>
+    <div class="quantity-controls">
+      <button mat-icon-button (click)="decrementQuantity()">
+        <mat-icon>remove_circle_outline</mat-icon>
+      </button>
+      <span>{{ data.quantity }}</span>
+      <button mat-icon-button (click)="incrementQuantity()">
+        <mat-icon>add_circle_outline</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Ajouter {{ data.quantity }} pour {{ data.totalPrice.toFixed(3) }} TND</button>
+</div>

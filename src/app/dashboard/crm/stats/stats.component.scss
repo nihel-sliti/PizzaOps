@@ -1,0 +1,13 @@
+h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+
+    .view-all {
+      font-size: 14px;
+      color: #00a651;
+      text-decoration: none;
+    }
+  }

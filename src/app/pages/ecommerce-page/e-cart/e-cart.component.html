@@ -1,0 +1,221 @@
+<div class="row">
+  <div class="col-lg-8">
+    <mat-card class="trinta-card shopping-cart-card mb-25 bg-white border-none d-block">
+      <mat-card-header>
+        <mat-card-title> </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="shopping-cart-table">
+          <div class="responsive">
+            <button mat-button class="custom-button" type="button">
+              <mat-icon>sync</mat-icon> Round
+            </button>
+            <button mat-button class="custom-button" type="button">
+              <mat-icon>undo</mat-icon> Refund
+            </button>
+            <button mat-button class="custom-button" type="button">
+              <mat-icon>clear</mat-icon> Clear
+            </button>
+            <button mat-button class="custom-button" type="button">
+              <mat-icon>more_horiz</mat-icon> Other
+            </button>
+            <button mat-button class="custom-button" type="button">
+              <mat-icon>pause</mat-icon> Hold
+            </button>
+            <button mat-button class="custom-button" type="button">
+              <mat-icon>keyboard_return</mat-icon> Return
+            </button>
+            <button mat-button class="custom-button" type="button">
+              <mat-icon>done</mat-icon> Exact
+            </button>
+        
+            <button mat-button class="custom-button-more" (click)="toggleMore()" type="button">
+              <mat-icon>{{ showMore ? "expand_less" : "expand_more" }}</mat-icon>
+              More
+            </button>
+        
+            <div *ngIf="showMore" class="more-buttons">
+              <button mat-button class="custom-button" type="button">
+                <mat-icon>attach_money</mat-icon> Gratuity
+              </button>
+              <button mat-button class="custom-button" type="button">
+                <mat-icon>call_split</mat-icon> Split
+              </button>
+              <button mat-button class="custom-button" type="button">
+                <mat-icon>block</mat-icon> Void
+              </button>
+              <button mat-button class="custom-button" type="button">
+                <mat-icon>print</mat-icon> Print
+              </button>
+              <button mat-button class="custom-button" type="button">
+                <mat-icon>shopping_cart</mat-icon> No Sale
+              </button>
+              <button mat-button class="custom-button" type="button" (click)="openDiscountDialog()">
+                <mat-icon>local_offer</mat-icon> Item Disc.
+              </button>
+              <button mat-button class="custom-button" type="button" (click)="openDiscountTotalDialog()">
+                <mat-icon>confirmation_number</mat-icon> Ticket Disc.
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="trinta-card shopping-cart-card mb-25 bg-white border-none d-block">
+      <mat-card-header>
+        <mat-card-title>
+          <h5 class="mt-0 mb-0">Shopping Cart</h5>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="shopping-cart-table">
+          <div class="table-responsive">
+            <table mat-table [dataSource]="dataSource">
+              <!-- Product Column -->
+              <ng-container matColumnDef="product">
+                <th mat-header-cell *matHeaderCellDef class="pl-0">Product</th>
+                <td mat-cell *matCellDef="let element" class="pl-0">
+                  <div class="product-info d-flex align-items-center">
+                    <a routerLink="" class="image d-block">
+                      <img *ngIf="element.image" [src]="element.image" alt="product" width="80" height="80"/>
+                    </a>
+                  </div>
+                </td>
+              </ng-container>
+
+              <!-- Price Column -->
+              <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef>Price</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.price | currency }}
+                </td>
+              </ng-container>
+
+              <!-- Size Column -->
+              <ng-container matColumnDef="size">
+                <th mat-header-cell *matHeaderCellDef>Size</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.size }}
+                </td>
+              </ng-container>
+
+              <!-- Quantity Column -->
+              <ng-container matColumnDef="quantity">
+                <th mat-header-cell *matHeaderCellDef>Quantity</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.quantity }}
+                </td>
+              </ng-container>
+
+              <!-- Total Column -->
+              <ng-container matColumnDef="total">
+                <th mat-header-cell *matHeaderCellDef>Total</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.totalPrice | currency }}
+                </td>
+              </ng-container>
+
+              <!-- Action Column -->
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef class="text-end pr-0"></th>
+                <td mat-cell *matCellDef="let element" class="text-end pr-0">
+                  <button mat-button (click)="removeItem(element)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  
+      <div class="col-lg-4">
+        <mat-card
+          class="trinta-card order-summary-card mb-25 bg-white border-none d-block"
+        >
+          <mat-card-header>
+            <mat-card-title>
+              <h5 class="mt-0 mb-0">Order Summary</h5>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ul class="p-0 m-0 list-unstyled">
+              <li class="d-flex justify-content-between text-dark">
+                <span class="d-block fw-medium"> Description </span>
+                <span class="d-block fw-medium"> Price </span>
+              </li>
+              <li class="d-flex justify-content-between text-black">
+                <span class="d-block"> Grand Total : </span>
+                <span class="d-block"> {{ total | currency }} </span>
+              </li>
+            
+              <li class="d-flex justify-content-between text-black">
+                <span class="d-block"> Discount : </span>
+                <span class="d-block"> -{{ discount | currency }} </span>
+              </li>
+              <li class="d-flex justify-content-between text-dark">
+                <span class="d-block fw-medium"> Total : </span>
+                <span class="d-block fw-medium"> {{ grandTotal | currency }} </span>
+              </li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+    
+
+
+<div class="card-container">
+  <mat-card class="trinta-card shopping-cart-card mb-25 border-none d-block">
+    <mat-card-header>
+      <mat-card-title>Choose Customer</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <button mat-button class="custom-button-customer" type="button">
+        <mat-icon>person</mat-icon>
+      </button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="trinta-card shopping-cart-card mb-25 border-none d-block">
+    <mat-card-header>
+      <mat-card-title>Payment Method</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <button mat-button class="custom-button-customer" type="button" (click)="openPaymentMethodDialog()">
+        <mat-icon>payments</mat-icon>
+      </button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="trinta-card shopping-cart-card mb-25 border-none d-block">
+    <mat-card-header>
+      <mat-card-title>Customer Account</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <button mat-button class="custom-button-customer" type="button">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="trinta-card shopping-cart-card mb-25 border-none d-block">
+    <mat-card-header>
+      <mat-card-title>Gift Card</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <button mat-button class="custom-button-customer" type="button">
+        <mat-icon>redeem</mat-icon>
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+</div>

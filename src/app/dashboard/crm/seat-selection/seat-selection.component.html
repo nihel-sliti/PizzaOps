@@ -1,0 +1,13 @@
+<h1>Sélectionnez vos places</h1>
+<p>250 places libres</p>
+<div class="seat-map">
+  <div class="row" *ngFor="let row of rows; let rowIndex = index">
+    <button class="seat"
+            *ngFor="let seat of row; let seatIndex = index"
+            [class.available]="seat.available"
+            [class.selected]="seat.selected"
+            (click)="selectSeat(rowIndex, seatIndex)">
+      {{ seat.label }}
+    </button>
+  </div>
+</div>

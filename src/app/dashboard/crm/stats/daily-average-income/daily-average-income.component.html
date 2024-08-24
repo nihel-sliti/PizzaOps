@@ -1,0 +1,27 @@
+<div class="promotions">
+  <h2>Burger <a href="#" class="view-all">Tout voir</a></h2>
+  <div class="promo-cards-wrapper">
+    <div class="promo-cards">
+      <div class="promo-card" *ngFor="let promo of promotions">
+        <div class="promo-card-header">
+          <img [src]="promo.image" alt="{{ promo.name }}" class="promo-image">
+        
+          <div class="rating">
+            <img src="assets/images/thumbs-up.jpg" alt="Thumb Up" class="thumb-up-icon"> {{ promo.rating }} ({{ promo.reviews }})
+          </div>
+        </div>
+        <div class="promo-card-content">
+          <div class="card-header">
+            <h3>{{ promo.name }}</h3>
+            <span class="category">{{ promo.category }}</span>
+          </div>
+          <div class="price-time">
+            <span class="price">{{ promo.price }} TND</span>
+            <span class="time">{{ promo.time }}</span>
+          </div>
+          <a href="#" class="buy-button">Acheter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

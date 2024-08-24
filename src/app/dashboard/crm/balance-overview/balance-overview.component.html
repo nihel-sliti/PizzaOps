@@ -1,0 +1,25 @@
+<div class="menu-and-cart">
+   
+    <div class="menu-container">
+        <h2>Top des ventes</h2>
+      <div class="menu-item"
+           *ngFor="let item of menuItems" 
+           (click)="openItemDetail(item)"
+           (keydown)="onKeyDown($event, item)"
+           (keypress)="onKeyPress($event, item)"
+           (keyup)="onKeyUp($event, item)"
+           role="button"
+           tabindex="0"
+           aria-pressed="false">
+        <img [src]="item.image" alt="{{ item.name }}">
+        <div class="menu-info">
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.details.join(', ') }}</p>
+          <p>{{ item.price.toFixed(3) }}DT</p>
+          <button  class="add-button">+</button>
+        </div>
+      </div>
+    </div>
+    <app-cart></app-cart>
+  </div>
+  
