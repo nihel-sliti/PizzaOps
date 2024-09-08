@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-
+import { MatDialogModule } from '@angular/material/dialog';
 interface OrderDetail {
   name: string;
   quantity: number;
@@ -14,7 +14,8 @@ interface OrderDetail {
 @Component({
   selector: 'app-discount-dialog-total',
   standalone: true,
-  imports: [MatTableModule, MatButtonModule, CommonModule],
+  imports: [MatTableModule, MatButtonModule, CommonModule, MatDialogModule,
+  ],  
   templateUrl: './discount-dialog-total.component.html',
   styleUrls: ['./discount-dialog-total.component.scss'],
 })

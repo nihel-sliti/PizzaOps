@@ -1,65 +1,47 @@
 .payment-content {
-    text-align: center;
-    padding: 20px;
-  
-    h2 {
-      font-size: 20px;
-      margin-bottom: 20px;
-    }
-  
-    .card-logos {
-      display: flex;
-      justify-content: space-around;
-      margin-bottom: 20px;
-  
-      h3 {
-        font-size: 16px;
-        margin-bottom: 10px;
-      }
-  
-      img {
-        width: 50px;
-        margin: 0 10px;
-      }
-    }
-  
-    .auth-code-field {
-      width: 100%;
-    }
-  }
-  
-  
-  .dialog-actions {
-    display: flex;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card-logos {
+  display: flex;
   justify-content: space-between;
-  align-items: center;
-  width: 80px; /* Ajuster cette valeur selon l'espacement souhaité entre les boutons */
-  margin: 0 auto;
-    .action-btn {
-      background-color: #D09C4A; /* Color similar to the one in the image */
-      color: white;
-      border-radius: 5%;
-      height: 20px;
-      width: 20px;
-    
-      align-items: center;
-      justify-content: center;
-  
-      mat-icon {
-        font-size: 10px;
-      }
-  
-      &:hover {
-        background-color: #BF8C3A; /* Slightly darker on hover */
-      }
-    }
-  
-    .cancel-btn {
-      background-color: #D09C4A;
-    }
-  
-    .confirm-btn {
-      background-color: #D09C4A;
+  img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+  }
+  h3 {
+    margin-bottom: 10px;
+  }
+}
+
+.auth-code-field {
+  width: 100%;
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  button {
+    background-color: #cccccc; // Matching the grey theme
+    color: #333;
+    &:hover {
+      background-color: #aaaaaa;
     }
   }
-  
+}
+
+/* Global Button Styles */
+button {
+  margin: 5px;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 16px;
+}

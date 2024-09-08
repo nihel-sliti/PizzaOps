@@ -1,45 +1,43 @@
 <h1 mat-dialog-title>Apply Discounts</h1>
-<div mat-dialog-content>
-  <table mat-table [dataSource]="orderDetails" class="mat-elevation-z8">
+
+  <mat-table [dataSource]="orderDetails">
+    <!-- Column definitions -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Product</th>
       <td mat-cell *matCellDef="let element">{{ element.name }}</td>
     </ng-container>
-
     <ng-container matColumnDef="quantity">
       <th mat-header-cell *matHeaderCellDef>Quantity</th>
       <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
     </ng-container>
-
     <ng-container matColumnDef="price">
       <th mat-header-cell *matHeaderCellDef>Price</th>
       <td mat-cell *matCellDef="let element">{{ element.price }}</td>
     </ng-container>
-
     <ng-container matColumnDef="totalPrice">
       <th mat-header-cell *matHeaderCellDef>Total Price</th>
       <td mat-cell *matCellDef="let element">{{ element.totalPrice }}</td>
     </ng-container>
-
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let element">
-        <button mat-button color="warn" (click)="removeDiscount(element)">
-          Remove Discount
-        </button>
+        <button mat-button color="warn" (click)="removeDiscount(element)">Remove Discount</button>
       </td>
     </ng-container>
 
+    <!-- Row definitions -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
+  </mat-table>
+
+
+<div class="dialog-actions">
+  <button mat-button class="apply-btn" (click)="applyBuy1Get1Free()">Buy 1 Get 1 Free</button>
+  <button mat-button class="apply-btn" (click)="applyBuy2Get1Free()">Buy 2 Get 1 Free</button>
+  <button mat-button class="apply-btn" (click)="apply20PercentOff()">20% Off</button>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="applyBuy1Get1Free()">Apply Buy 1 Get 1 Free</button>
-  <button mat-button (click)="applyBuy2Get1Free()">Apply Buy 2 Get 1 Free</button>
-  <button mat-button (click)="apply20PercentOff()">Apply 20% Off</button>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button color="primary" (click)="onSave()">Save</button>
+
+<div class="dialog-actions">
+  <button mat-button class="cancel-btn" (click)="onCancel()">Cancel</button>
+  <button mat-button class="save-btn" color="primary" (click)="onSave()">Save</button>
 </div>

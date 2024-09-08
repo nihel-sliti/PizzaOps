@@ -82,8 +82,11 @@ export class ECartComponent {
 
   openDiscountDialog(): void {
     const dialogRef = this.dialog.open(DiscountDialogComponent, {
-      width: '300px',
+      width: 'fit-content',  // Auto adjust width based on content
+      height: 'fit-content', // Auto adjust height based on content
+      maxHeight: '90vh', // Limit height to prevent overflow
     });
+
 
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.valid) {
@@ -92,6 +95,8 @@ export class ECartComponent {
       }
     });
   }
+
+ 
 
   calculateGrandTotal(): void {
     this.grandTotal = this.total - this.discount;
@@ -125,4 +130,5 @@ export class ECartComponent {
       // Traitez les résultats après la fermeture du dialogue
     });
 }
+
 }

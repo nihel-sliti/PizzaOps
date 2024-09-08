@@ -1,0 +1,52 @@
+.virtual-keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%; /* Ensures the keyboard fits the width of the container */
+  }
+  
+  .key-row {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+  }
+  
+  .key {
+    padding: 12px 18px; /* Slightly larger padding for better touch interaction */
+    margin: 5px;
+    font-size: 16px; /* Standard size for keyboard keys */
+    background-color: #f1f1f1; /* Light gray background for the keys */
+    border: none;
+    border-radius: 6px; /* Rounded corners for keys */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Light shadow for key depth */
+  }
+  
+  .key:hover {
+    background-color: #e0e0e0; /* Darker shade on hover */
+  }
+  
+  .key:active {
+    background-color: #d0d0d0; /* Even darker shade on click */
+  }
+  
+  .wide-key {
+    flex-grow: 2; /* Make the "Clear" and "Backspace" keys wider */
+    text-align: center;
+    padding: 12px 20px; /* Additional padding for wider buttons */
+  }
+  
+  /* Responsiveness for smaller screens */
+  @media (max-width: 768px) {
+    .key {
+      padding: 8px 12px; /* Reduced padding on smaller screens */
+      font-size: 14px; /* Reduced font size for smaller screens */
+    }
+  
+    .wide-key {
+      flex-grow: 1; /* Narrower width for wide keys on smaller screens */
+    }
+  }
+  

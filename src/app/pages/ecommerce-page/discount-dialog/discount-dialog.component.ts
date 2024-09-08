@@ -19,6 +19,10 @@ import { FormsModule } from '@angular/forms';
 export class DiscountDialogComponent {
   discountCode: string = '';
 
+  appendChar(char: string) {
+    this.discountCode += char;
+  }
+
   constructor(public dialogRef: MatDialogRef<DiscountDialogComponent>) {}
 
   onSave(): void {
@@ -32,4 +36,12 @@ export class DiscountDialogComponent {
   onCancel(): void {
     this.dialogRef.close();
   }
+  clear() {
+    this.discountCode = '';
+}
+
+backspace() {
+    this.discountCode = this.discountCode.slice(0, -1);
+}
+
 }

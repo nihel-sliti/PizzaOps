@@ -1,0 +1,130 @@
+/* Base Styles for Dialog */
+mat-dialog-content {
+    background: #ffffff;
+    padding: 4px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  mat-dialog-title {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  mat-table {
+    width: 100px;
+    margin-top: 20px;
+    margin-left: 20px;  // Added left margin
+    margin-right: 20px; // Added right margin
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  
+    th {
+      background-color: #ecf0f1;
+      color: #34495e;
+      font-weight: bold;
+      padding: 16px;
+      text-align: left;
+      font-size: 1rem;
+      border-bottom: 2px solid #d6d6d6;
+    }
+  
+    td {
+      padding: 16px;
+      border-bottom: 1px solid #ecf0f1;
+      font-size: 0.9rem;
+      color: #34495e;
+      &:last-child {
+        text-align: center; // Ensures the last cell content is centered, often used for action buttons
+      }
+    }
+  
+    tr:last-child td {
+      border-bottom: none; // Removes the bottom border for the last row
+    }
+  }
+  @media (max-width: 768px) {
+    mat-table {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+    
+  
+  .mat-button {
+    text-transform: none;
+    font-size: 1rem;
+    padding: 10px 16px;
+    border-radius: 6px;
+    margin: 0 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .mat-button-primary {
+    background-color: #3498db;
+    color: white;
+    &:hover {
+      background-color: #2980b9;
+    }
+  }
+  
+  .mat-button-warn {
+    background-color: #e74c3c;
+    color: white;
+    &:hover {
+      background-color: #c0392b;
+    }
+  }
+  
+  .mat-button-secondary {
+    background-color: #95a5a6;
+    color: white;
+    &:hover {
+      background-color: #7f8c8d;
+    }
+  }
+  
+  /* Dialog Actions */
+  .dialog-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+  
+  }
+  
+  .dialog-actions button {
+    flex-grow: 1;
+    margin: 0 5px;
+  }
+  
+  /* Focused Action Buttons */
+  .apply-btn {
+    background-color: #e6b87c;
+    color: white;
+    &:hover {
+      background-color: #e6b87c;
+    }
+  }
+  
+  .cancel-btn {
+    background-color: #e67e22;
+    color: white;
+    &:hover {
+      background-color: #d35400;
+    }
+  }
+  
+  .save-btn {
+    background-color: #c2beb8;
+    color: white;
+    &:hover {
+      background-color: #e6b87c;
+    }
+  }
+  

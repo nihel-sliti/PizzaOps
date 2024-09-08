@@ -1,12 +1,87 @@
-<h1 mat-dialog-title>Select order discount</h1>
+<!-- Dialog HTML -->
+<h1 mat-dialog-title>Select Order Discount</h1>
 <div mat-dialog-content>
     <mat-form-field appearance="fill" class="w-100">
-        <label>Enter coupon number</label>
+        <mat-label>Enter coupon number</mat-label>
         <input matInput [(ngModel)]="discountCode" />
-      </mat-form-field>
-      
+    </mat-form-field>
+    <!-- Virtual Keyboard -->
+    <div class="virtual-keyboard">
+      <!-- Numbers Row 
+      <div class="key-row">
+          <button class="key" (click)="appendChar('1')">1</button>
+          <button class="key" (click)="appendChar('2')">2</button>
+          <button class="key" (click)="appendChar('3')">3</button>
+          <button class="key" (click)="appendChar('4')">4</button>
+          <button class="key" (click)="appendChar('5')">5</button>
+          <button class="key" (click)="appendChar('6')">6</button>
+          <button class="key" (click)="appendChar('7')">7</button>
+          <button class="key" (click)="appendChar('8')">8</button>
+          <button class="key" (click)="appendChar('9')">9</button>
+          <button class="key" (click)="appendChar('0')">0</button>
+      </div>
+  -->
+      <!-- First Alphabet Row -->
+      <div class="key-row">
+          <button class="key" (click)="appendChar('q')">q</button>
+          <button class="key" (click)="appendChar('w')">w</button>
+          <button class="key" (click)="appendChar('e')">e</button>
+          <button class="key" (click)="appendChar('r')">r</button>
+          <button class="key" (click)="appendChar('t')">t</button>
+          <button class="key" (click)="appendChar('y')">y</button>
+          <button class="key" (click)="appendChar('u')">u</button>
+          <button class="key" (click)="appendChar('i')">i</button>
+          <button class="key" (click)="appendChar('o')">o</button>
+          <button class="key" (click)="appendChar('p')">p</button>
+      </div>
+  
+      <!-- Second Alphabet Row -->
+      <div class="key-row">
+          <button class="key" (click)="appendChar('a')">a</button>
+          <button class="key" (click)="appendChar('s')">s</button>
+          <button class="key" (click)="appendChar('d')">d</button>
+          <button class="key" (click)="appendChar('f')">f</button>
+          <button class="key" (click)="appendChar('g')">g</button>
+          <button class="key" (click)="appendChar('h')">h</button>
+          <button class="key" (click)="appendChar('j')">j</button>
+          <button class="key" (click)="appendChar('k')">k</button>
+          <button class="key" (click)="appendChar('l')">l</button>
+      </div>
+  
+      <!-- Third Alphabet Row -->
+      <div class="key-row">
+          <button class="key" (click)="appendChar('z')">z</button>
+          <button class="key" (click)="appendChar('x')">x</button>
+          <button class="key" (click)="appendChar('c')">c</button>
+          <button class="key" (click)="appendChar('v')">v</button>
+          <button class="key" (click)="appendChar('b')">b</button>
+          <button class="key" (click)="appendChar('n')">n</button>
+          <button class="key" (click)="appendChar('m')">m</button>
+      </div>
+  
+      <!-- Punctuation Row -->
+      <div class="key-row">
+          <button class="key" (click)="appendChar('.')">.</button>
+          <button class="key" (click)="appendChar(',')">,</button>
+          <button class="key" (click)="appendChar('#')">#</button>
+          <button class="key" (click)="appendChar('%')">%</button>
+          <button class="key" (click)="appendChar('&')">&</button>
+          <button class="key" (click)="appendChar('*')">*</button>
+          <button class="key" (click)="appendChar('-')">-</button>
+          <button class="key" (click)="appendChar('+')">+</button>
+          <button class="key" (click)="appendChar('/')">/</button>
+      </div>
+  
+      <!-- Control Keys -->
+      <div class="key-row">
+          <button class="key wide-key" (click)="clear()">Clear</button>
+          <button class="key wide-key" (click)="backspace()">Backspace</button>
+      </div>
+  </div>
+  
+  
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button color="primary" (click)="onSave()">Save</button>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button color="primary" (click)="onSave()">Save</button>
 </div>
