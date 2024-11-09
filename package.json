@@ -30,6 +30,7 @@
     "angular-feather": "^6.5.1",
     "apexcharts": "^3.47.0",
     "express": "^4.18.2",
+    "leaflet": "^1.9.4",
     "moment": "^2.30.1",
     "ng-apexcharts": "^1.9.0",
     "ngx-color-picker": "^16.0.0",
@@ -40,6 +41,7 @@
     "ngx-scrollbar": "^14.0.0-beta.5",
     "remixicon": "^4.2.0",
     "rxjs": "~7.8.0",
+    "trinta": "file:",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },

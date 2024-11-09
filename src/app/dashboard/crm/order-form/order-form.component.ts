@@ -43,7 +43,7 @@ export class OrderDialogComponent {
     if (this.diningOption == 'onSite') {
       this.router.navigate(['/ecommerce-page/cart']);
     } else if (this.diningOption == 'delivery') {
-      this.router.navigate(['/ecommerce-page/cart']);
+      this.router.navigate(['/delivery-details']);
     }
   }
 }

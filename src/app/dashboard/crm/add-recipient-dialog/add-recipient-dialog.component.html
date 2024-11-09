@@ -1,0 +1,28 @@
+<div class="dialog-form">
+    <h2>Ajouter un destinataire</h2>
+    
+    <form>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nom du destinataire</mat-label>
+        <input matInput placeholder="Nom du destinataire">
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Numéro de téléphone</mat-label>
+        <mat-select>
+          <mat-option value="+216">+216</mat-option>
+          <!-- Add other country codes if necessary -->
+        </mat-select>
+        <input matInput placeholder="20 123 456">
+      </mat-form-field>
+  
+      <p class="info-text">
+        En partageant les informations relatives au destinataire, vous êtes seul(e) responsable
+        d’obtenir son consentement et de l’informer pour le traitement de ses données.
+        <a href="#" class="privacy-link">Consultez notre politique de confidentialité</a>
+      </p>
+  
+      <button mat-button color="primary" [disabled]="true" class="submit-button">Enregistrer</button>
+    </form>
+  </div>
+  

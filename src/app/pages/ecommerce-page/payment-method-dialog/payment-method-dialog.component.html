@@ -5,15 +5,15 @@
       <div class="card-logos">
         <div>
           <h3>Credit Card</h3>
-          <img src="assets/visa.png" alt="Visa" />
-          <img src="assets/mastercard.png" alt="Mastercard" />
-          <img src="assets/amex.png" alt="Amex" />
-          <img src="assets/discover.png" alt="Discover" />
+          <img src="assets/images/visa.png" alt="Visa" />
+          <img src="assets/images/mastercard.png" alt="Mastercard" />
+          <img src="assets/images/amercian.png" alt="Amex" />
+          <img src="assets/images/discover.png" alt="Discover" />
         </div>
         <div>
           <h3>Debit Card</h3>
-          <img src="assets/visa.png" alt="Visa" />
-          <img src="assets/mastercard.png" alt="Mastercard" />
+          <img src="assets/images/visa.png" alt="Visa" />
+          <img src="assets/images/mastercard.png" alt="Mastercard" />
         </div>
       </div>
       <mat-form-field appearance="outline" class="auth-code-field">
@@ -23,8 +23,18 @@
     </div>
   </mat-tab>
   <mat-tab label="Cash">
-    <!-- Contenu pour l'onglet "Cash" -->
-  </mat-tab>
+   
+      <div class="payment-content">
+        <h2>Payment in Cash</h2>
+        <p>Please enter the amount to be paid in cash.</p>
+        <mat-form-field appearance="outline" class="cash-amount-field">
+          <mat-label>Amount</mat-label>
+          <input matInput type="number" placeholder="Enter amount" />
+        </mat-form-field>
+        <p>Make sure to confirm the amount received before proceeding.</p>
+      </div>
+    </mat-tab>
+  
 </mat-tab-group>
 
 <div class="dialog-actions">

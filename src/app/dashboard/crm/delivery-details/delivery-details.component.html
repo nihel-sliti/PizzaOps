@@ -1,39 +1,63 @@
-<h1>Pizza Da Mikaele</h1>
-<p>1 produit de Pizza Da Mikaele</p>
-<ul>
-  <li>
-    <span>1</span>
-    <span>Pizza Roma - Tonno</span>
-    <span>39,000 TND</span>
-  </li>
-</ul>
+<div class="delivery-details-container">
+  <!-- Move Détails de livraison above Des allergies -->
+  <div class="delivery-container">
+    <h2>Détails de livraison</h2>
+    <div class="delivery-details">
+      <img src="assets/maps.png" alt="Map">
+      <div class="address-info">
+        <span class="location-icon">📍</span> <!-- Replace this with an actual icon if preferred -->
+        <p>{{ address }}</p>
+      </div>
+    </div>
+    <div class="other-address" (click)="openAddRecipientDialog()">
+      <p>Vous envoyez à quelqu'un d'autre ?</p>
+      <p>Ajoutez ses coordonnées pour aider le coursier</p>
+    </div>
+    
+    <div class="estimated-time">
+      <p>{{ estimatedTime }}</p>
+      <p>{{ additionalInfo }}</p>
+    </div>
+  </div>
 
-<div class="allergies">
-  <p>Des allergies ?</p>
+  <!-- Allergies section below Détails de livraison 
+  <div class="allergies-container">
+    <label for="allergy-input" class="allergies-label">Des allergies ?</label>
+    <input
+      id="allergy-input"
+      type="text"
+      [(ngModel)]="allergy"
+      placeholder="Entrez vos allergies"
+      name="allergy"
+      class="allergy-input"
+      aria-describedby="allergy-help"
+    >
+    <small id="allergy-help" class="allergy-help">Veuillez préciser vos allergies, si vous en avez.</small>
+    <button (click)="submitAllergy()" class="submit-button">Soumettre</button>
+  </div>
+-->
+  <!-- Récapitulatif section stays on the right -->
+  <div class="recap-container">
+    <h2>Récapitulatif</h2>
+    <ul class="summary-list">
+      <li>
+        <span>Produits:</span>
+        <span>{{ summary.productsTotal | currency:'TND' }}</span>
+      </li>
+      <li>
+        <span>Livraison:</span>
+        <span>{{ summary.deliveryFee | currency:'TND' }}</span>
+      </li>
+      <li>
+        <span>Frais de service:</span>
+        <span>{{ summary.serviceFee | currency:'TND' }}</span>
+      </li>
+      <li>
+        <span>Code promo:</span>
+        <span class="discount">{{ summary.promoCodeDiscount | currency:'TND' }}</span>
+      </li>
+    </ul>
+    <h3 class="total">TOTAL: {{ summary.total | currency:'TND' }}</h3>
+    <button class="validate-btn" (click)="validateOrder()">Valider ma commande</button>
+  </div>
 </div>
-
-<h2>Détails de livraison</h2>
-<div class="delivery-details">
-  <img src="assets/map.png" alt="Map"> <!-- Assurez-vous d'avoir une image de carte dans le dossier assets -->
-  <p>V52G+R59, Ariana, Tunisie</p>
-</div>
-
-<div class="other-address">
-  <p>Vous envoyez à quelqu'un d'autre ?</p>
-  <p>Ajoutez ses coordonnées pour aider le coursier</p>
-</div>
-
-<div class="estimated-time">
-  <p>15-25 minutes</p>
-  <p>Dès que possible</p>
-</div>
-
-<h2>Récapitulatif</h2>
-<ul>
-  <li>Produits: 39,000 Dt</li>
-  <li>Livraison: 0,500 Dt</li>
-  <li>Frais de service: 0,250 Dt</li>
-  <li>Code promo: -4,000 Dt</li>
-</ul>
-<h3>TOTAL: 35,750 Dt</h3>
-<button>Valider ma commande</button>

@@ -33,7 +33,7 @@ export class BalanceOverviewComponent {
     {
       name: 'Lily Salad',
       price: 19.900,
-      image: 'assets/images/pasta.jpeg',
+      image: 'assets/images/salad_lily.jpg',
       quantity: 0,
       details: ['Laitue', 'tomate cerise', 'tomate', 'roquette', 'concombre', 'maïs', 'poitrine de dinde fumée 50g', 'jambon de dinde 50g', 'ricotta 50g', 'gruyère 30g', 'sicilien 50g'],
       options: [
@@ -48,7 +48,7 @@ export class BalanceOverviewComponent {
     {
       name: 'Golden Salad',
       price: 15.900,
-      image: 'assets/images/pizza.png',
+      image: 'assets/images/salade.jpg',
       quantity: 0,
       details: ['Laitue', 'tomate cerise', 'tomate', 'roquette', 'concombre', 'maïs', 'escalope grillée 90g', 'gruyère 40g ou gouda 40g', 'œuf'],
       options: [
@@ -64,7 +64,7 @@ export class BalanceOverviewComponent {
     {
       name: 'Golden Salad',
       price: 15.900,
-      image: 'assets/images/pizza.png',
+      image: 'assets/images/slademaison.png',
       quantity: 0,
       details: ['Laitue', 'tomate cerise', 'tomate', 'roquette', 'concombre', 'maïs', 'escalope grillée 90g', 'gruyère 40g ou gouda 40g', 'œuf'],
       options: [
